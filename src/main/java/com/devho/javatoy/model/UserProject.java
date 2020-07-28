@@ -9,8 +9,8 @@ import javax.persistence.*;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
-@Table(name = "USERPROJECT")
-@Entity
+@Table(name = "USERPROJECT") // 테이블을 명시적으로 선언. (기본은 클래스 네임 대문자 단어 사이'_')
+@Entity // 이 클래스가 Entity, 즉 db table과의 Mapping을 위함 , (테이블에 대응하는 하나의 클래스)
 public class UserProject extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,6 +56,7 @@ public class UserProject extends BaseTimeEntity{
 
     }
 
+    //생성자 정의
     public UserProject(int id, String title, String description, String creator_name, String email,
                 String phone, Date start_date, Date finish_date, int target_amount, int donated_count, int donated_amount, boolean public_yn, String status){
         this.id = id;

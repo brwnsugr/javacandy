@@ -1,4 +1,8 @@
+//패키지는 Class 와 인터페이스의 집합입니다.
+//자바에서 패키지는 물리적으로 하나의 디렉토리로 생각할 수 있음
+//패키지는 또 다른 패키지를 포함할 수 있다.
 package com.devho.javatoy;
+
 
 import java.util.Date;
 

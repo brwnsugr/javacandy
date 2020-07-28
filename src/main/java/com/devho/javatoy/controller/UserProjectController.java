@@ -3,6 +3,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//Autowired 는 IoC 안에 있는 컨테이너의 존재하는 Bean 을 자동으로 주입해줌
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.web.PageableDefault;
@@ -26,17 +27,17 @@ import com.devho.javatoy.model.UserProject;
 public class UserProjectController {
 
     @Autowired
-    private UserProjectRepository userProjectRepository;
+    private UserProjectRepository userProjectRepository; // autowired 를 통해 해당 객체 주입
 
     @ApiOperation(value="list project", notes="get list of the projects")
-    @GetMapping("/projects")
+    @GetMapping("/projects") // url routes
     public Page<UserProject> getProjects(@PageableDefault(size=10) Pageable pageable,
                                          @RequestParam("정렬 대상(start_date, finish_date, ")String sort_name,
                                          @RequestParam("정렬 순서(asc/desc)")String order) {
-        return userProjectRepository.findAll(pageable);
+        return userProjectRepository.findAll(pageable); // repo 인터페이스에 정의된 매소드
     }
 
-    @GetMapping("/project/{id}")
+    @GetMapping("/project/{id}") // pathvariable 어노테이션을 통해 id를 path에 명시적으로 받음
     public UserProject getProductById(@PathVariable("id") int id) {
         return userProjectRepository.findById(id).get();
     }

@@ -15,7 +15,7 @@ import springfox.documentation.service.Contact;
 import java.util.Collections;
 
 @EnableSwagger2
-@Configuration
+@Configuration // 설정 파일 어노테이션이고, 컴포넌트임
 public class Swagger2Config {
     @Bean
     public Docket api() {

@@ -1,7 +1,7 @@
 package com.devho.javatoy.common;
 
 import org.springframework.data.domain.Sort;
-
+//컨트롤러에 있는 Pageable -> PageRequest 교체하면 됨
 public final class PageRequest {
 
     private int page;
@@ -34,6 +34,7 @@ public final class PageRequest {
         return direction;
     }
 
+    // of 메소드를 통해 pagerequest 객체를 응답해줌
     public org.springframework.data.domain.PageRequest of() {
         return org.springframework.data.domain.PageRequest.of(page - 1, size, direction, "createdAt");
     }
